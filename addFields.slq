@@ -1,0 +1,1 @@
+ALTER TABLE `s_variants` ADD `weight` FLOAT NOT NULL DEFAULT '0' AFTER `external_id`, ADD `volume` FLOAT NOT NULL DEFAULT '0' AFTER `weight`;
