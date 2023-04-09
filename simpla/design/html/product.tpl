@@ -570,6 +570,10 @@ overflow-y: auto;
 			<li class="variant_sku">Артикул</li>	
 			<li class="variant_price">Цена, {$currency->sign}</li>	
 			<li class="variant_discount">Старая, {$currency->sign}</li>	
+			
+			<li class="variant_discount" style="width:45px;">Вес, г</li>   
+            		<li class="variant_volume">Объем,м3</li> 
+			
 			<li class="variant_amount">Кол-во</li>
 		</ul>
 		<div id="variants">
@@ -580,6 +584,10 @@ overflow-y: auto;
 			<li class="variant_sku">       <input name="variants[sku][]"           type="text"   value="{$variant->sku|escape}" /></li>
 			<li class="variant_price">     <input name="variants[price][]"         type="text"   value="{$variant->price|escape}" /></li>
 			<li class="variant_discount">  <input name="variants[compare_price][]" type="text"   value="{$variant->compare_price|escape}" /></li>
+			
+			<li class="variant_discount" style="width:45px;">  <input name="variants[weight][]"		   type="text"   value="{$variant->weight|escape}" style="width:35px;"/></li>
+			<li class="variant_volume">  <input name="variants[volume][]" type="text"   value="{$variant->volume|escape}"  style="float:left;" onfocus="$('#measures_p'{if $variant->id|escape ne ''}+{$variant->id|escape}{/if}).show();" id="measures_p{$variant->id|escape}vol" /></li>
+			
 			<li class="variant_amount">    <input name="variants[stock][]"         type="text"   value="{if $variant->infinity || $variant->stock == ''}∞{else}{$variant->stock|escape}{/if}" />{$settings->units}</li>
 			<li class="variant_download">
 			
@@ -605,6 +613,10 @@ overflow-y: auto;
 			<li class="variant_sku"><input name="variants[sku][]" type="" value="" /></li>
 			<li class="variant_price"><input  name="variants[price][]" type="" value="" /></li>
 			<li class="variant_discount"><input name="variants[compare_price][]" type="" value="" /></li>
+			
+			<li class="variant_discount" style="width:45px;">  <input name="variants[weight][]"		   type="text"   value="" style="width:35px;"/></li>
+			<li class="variant_volume">  <input name="variants[volume][]" type="text"   value=""  style="float:left;" onfocus="$('#measures_p').show();" id="measures_pvol" /></li>
+			
 			<li class="variant_amount"><input name="variants[stock][]" type="" value="∞" />{$settings->units}</li>
 			<li class="variant_download">
 				<a href='#' class=add_attachment><img src="design/images/cd_add.png" alt="" /></a>
