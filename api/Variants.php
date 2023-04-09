@@ -36,7 +36,7 @@ class Variants extends Simpla
 		if(!$product_id_filter && !$variant_id_filter)
 			return array();
 		
-		$query = $this->db->placehold("SELECT v.id, v.product_id , v.price, NULLIF(v.compare_price, 0) as compare_price, v.sku, IFNULL(v.stock, ?) as stock, (v.stock IS NULL) as infinity, v.name, v.attachment, v.position
+		$query = $this->db->placehold("SELECT v.id, v.product_id , v.price, NULLIF(v.compare_price, 0) as compare_price, v.sku, IFNULL(v.stock, ?) as stock, (v.stock IS NULL) as infinity, v.name, v.attachment, v.position, v.weight, v.volume
 					FROM __variants AS v
 					WHERE 
 					1
@@ -56,7 +56,7 @@ class Variants extends Simpla
 		if(empty($id))
 			return false;
 			
-		$query = $this->db->placehold("SELECT v.id, v.product_id , v.price, NULLIF(v.compare_price, 0) as compare_price, v.sku, IFNULL(v.stock, ?) as stock, (v.stock IS NULL) as infinity, v.name, v.attachment
+		$query = $this->db->placehold("SELECT v.id, v.product_id , v.price, NULLIF(v.compare_price, 0) as compare_price, v.sku, IFNULL(v.stock, ?) as stock, (v.stock IS NULL) as infinity, v.name, v.attachment, v.weight, v.volume
 					FROM __variants v WHERE v.id=?
 					LIMIT 1", $this->settings->max_order_amount, $id);
 		
