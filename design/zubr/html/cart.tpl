@@ -1,5 +1,8 @@
 {* Шаблон корзины *}
 
+<script src="{$config->root_url}/design/{$settings->theme|escape}/js/jquery.kladr.min.js"></script>
+<link rel="stylesheet" href="{$config->root_url}/design/{$settings->theme|escape}/css/jquery.kladr.min.css">
+
 {$meta_title = "Корзина" scope=parent}
 <div class="limiter">
    <div id="breadcrumbs"><ul><li><a title="Главная страница" href="/">Главная страница</a></li><li><span class="arrow"> • </span></li><li><span class="changeName">Содержимое корзины</span></li></ul></div>						
@@ -122,9 +125,30 @@
                         </select>
                         <ul class="userProp">
                            <li class="deliProps">
-                              <span class="label">Адрес доставки</span>
+                              {*<span class="label">Адрес доставки</span>
                               <label></label>
-                              <input name="address" type="text" value="{$address|escape}"/>
+                              <input name="address" type="text" value="{$address|escape}"/>*}
+                              <span class="label">Область*</span>
+                              <label></label>
+                              <input name="region" required  id="reg_input" type="text" value="{$reg_name|escape}"/>
+
+                              <span class="label">Город*</span>
+                              <label></label>
+                              <input name="city" required id="city_input" type="text" value="{$city_name|escape}"/>
+
+                              <span class="label">Улица</span>
+                              <label></label>
+                              <input name="street" type="text" value="{$street|escape}"/>
+
+                              <span class="label">Дом</span>
+                              <label></label>
+                              <input name="building" type="text" value="{$building|escape}"/>
+
+                              <span class="label">Квартира</span>
+                              <label></label>
+                              <input name="app1" type="text" value="{$app1|escape}"/>
+
+                              <input type=hidden name="address" id="address_full" value="{$address|escape}"/> 
                            </li>
                         </ul>
                      </td>
