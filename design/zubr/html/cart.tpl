@@ -110,45 +110,70 @@
                         <span>Доставка</span>
                      </td>
                      <td>
-                        <span class="label">Доставка</span>
-                        <select name="delivery_id" class="deliSelect">
-                           {foreach $deliveries as $delivery}
-                              <option value="{$delivery->id}"{if $delivery_id == $delivery->id} selected{/if}>
-                                 {$delivery->name}
-                                 {if $cart->total_price < $delivery->free_from && $delivery->price>0}
-                                    ({$delivery->price|convert}&nbsp;{$currency->sign})
-                                 {elseif $cart->total_price >= $delivery->free_from}
-                                    (бесплатно)
-                                 {/if}
-                              </option>
-                           {/foreach}
-                        </select>
-                        <ul class="userProp">
-                           <li class="deliProps">
-                              {*<span class="label">Адрес доставки</span>
+                        <ul class="userProp addr_block">
+                           <li class="">
+                              <span class="label">Доставка</span>
+                              <label id="cdek_bl"></label>
+                              <select name="delivery_id" class="deliSelect">
+                                 {foreach $deliveries as $delivery}
+                                    <option value="{$delivery->id}"{if $delivery_id == $delivery->id} selected{/if}>
+                                       {$delivery->name}
+                                       {if $cart->total_price < $delivery->free_from && $delivery->price>0}
+                                          ({$delivery->price|convert}&nbsp;{$currency->sign})
+                                       {elseif $cart->total_price >= $delivery->free_from && $delivery->id != 13}
+                                          (бесплатно)
+                                       {/if}
+                                    </option>
+                                 {/foreach}
+                              </select>
+                           </li>
+
+                           {*<li class="deliProps" data-delivery-id="12">
+                                 <span class="label">Адрес доставки</span>
                               <label></label>
-                              <input name="address" type="text" value="{$address|escape}"/>*}
+                              <input name="address" type="text" value="{$address|escape}"/>
+                           </li>*}
+                       
+                           <li class="deliProps hide" data-delivery-id="13">
+                              <span class="label">Индекс*</span>
+                              <label></label>
+                              <textarea name="zip" class="likeInput" autocomplete="off" required  id="zip" type="text">{$zip|escape}</textarea>
+                           </li>
+
+                           <li class="deliProps hide" data-delivery-id="13">
                               <span class="label">Область*</span>
                               <label></label>
-                              <input name="region" required  id="reg_input" type="text" value="{$reg_name|escape}"/>
+                              <textarea name="region" class="likeInput" required  id="reg_input" type="text"  autocomplete="off">{$reg_name|escape}</textareA>
+                              <input type=hidden id="reg_type" class="address" name="reg_type">
+                           </li>
 
+                           <li class="deliProps hide" data-delivery-id="13">
                               <span class="label">Город*</span>
                               <label></label>
-                              <input name="city" required id="city_input" type="text" value="{$city_name|escape}"/>
+                              <textarea name="city" class="likeInput" required id="city_input" autocomplete="off" type="text">{$city_name|escape}</textarea>
+                           </li>
 
+                           <li class="deliProps hide" data-delivery-id="13">
                               <span class="label">Улица</span>
                               <label></label>
-                              <input name="street" type="text" value="{$street|escape}"/>
+                              <textarea name="streetfix" class="likeInput" autocomplete="off" type="text">{$streetfix|escape}</textarea>
+                           </li>
 
+                           <li class="deliProps hide" data-delivery-id="13">
                               <span class="label">Дом</span>
                               <label></label>
-                              <input name="building" type="text" value="{$building|escape}"/>
+                              <textarea name="building" class="likeInput" type="text" autocomplete="off">{$building|escape}</textarea>
+                           </li>
 
+                           <li class="deliProps hide" data-delivery-id="13">
                               <span class="label">Квартира</span>
                               <label></label>
-                              <input name="app1" type="text" value="{$app1|escape}"/>
+                              <textarea name="app1" class="likeInput" type="text" autocomplete="off">{$app1|escape}</textarea>
+                           </li>
 
+                           <li class="deliProps" style="display: none;">
                               <input type=hidden name="address" id="address_full" value="{$address|escape}"/> 
+                              <input type=hidden name=del_price id=del_price />
                            </li>
                         </ul>
                      </td>
