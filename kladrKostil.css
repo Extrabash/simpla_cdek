@@ -1,0 +1,3 @@
+#kladr_autocomplete ul > li:first-child {
+    display: none;
+}
