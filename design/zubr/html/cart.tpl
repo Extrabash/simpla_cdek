@@ -137,20 +137,20 @@
                            <li class="deliProps hide" data-delivery-id="13">
                               <span class="label">Индекс*</span>
                               <label></label>
-                              <textarea name="zip" class="likeInput" autocomplete="off" required  id="zip" type="text">{$zip|escape}</textarea>
+                              <textarea name="zip" class="likeInput" autocomplete="off" {if $delivery_id == 13}required{/if}  id="zip" type="text">{$zip|escape}</textarea>
                            </li>
 
                            <li class="deliProps hide" data-delivery-id="13">
                               <span class="label">Область*</span>
                               <label></label>
-                              <textarea name="region" class="likeInput" required  id="reg_input" type="text"  autocomplete="off">{$reg_name|escape}</textareA>
+                              <textarea name="region" class="likeInput" {if $delivery_id == 13}required{/if}  id="reg_input" type="text"  autocomplete="off">{$reg_name|escape}</textareA>
                               <input type=hidden id="reg_type" class="address" name="reg_type">
                            </li>
 
                            <li class="deliProps hide" data-delivery-id="13">
                               <span class="label">Город*</span>
                               <label></label>
-                              <textarea name="city" class="likeInput" required id="city_input" autocomplete="off" type="text">{$city_name|escape}</textarea>
+                              <textarea name="city" class="likeInput" {if $delivery_id == 13}required{/if} id="city_input" autocomplete="off" type="text">{$city_name|escape}</textarea>
                            </li>
 
                            <li class="deliProps hide" data-delivery-id="13">
