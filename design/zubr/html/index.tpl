@@ -416,6 +416,16 @@
                   $('.addr_block li.deliProps textarea').val('');
                   $('.addr_block li.deliProps input').val('');
                   $('.addr_block li.deliProps[data-delivery-id="'+delivery_id+'"]').removeClass('hide');
+		  
+		  if (delivery_id == 13){
+                     $('.addr_block [name="zip"]').prop('required', false);
+                     $('.addr_block [name="region"]').prop('required', false);
+                     $('.addr_block [name="city"]').prop('required', false);
+                  } else {
+                     $('.addr_block [name="zip"]').prop('required', true);
+                     $('.addr_block [name="region"]').prop('required', true);
+                     $('.addr_block [name="city"]').prop('required', true);
+                  }
                });
 
             }); 
